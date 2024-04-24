@@ -13,7 +13,7 @@ world.beforeEvents.chatSend.subscribe(ev => {
     const settingString = world.getDynamicProperty("setting");
     const setting = JSON.parse(settingString);
 
-    if (message === "cnsetting") {
+    if (sender.isOp() && message === "cnsetting") {
         ev.cancel = true;
         system.run(() => {
             settingMenu(sender, true);
